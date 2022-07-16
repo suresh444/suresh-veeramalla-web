@@ -38,9 +38,11 @@ table {
   .m-2{
     margin:1rem;
   }
-  .m-3{
-    padding: 1rem;
-  }
+  .m-auto{
+    display: flex;
+    justify-content: center;
+}
+
   
 
 

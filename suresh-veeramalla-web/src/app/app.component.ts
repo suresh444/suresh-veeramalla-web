@@ -21,9 +21,11 @@ export class AppComponent {
   title = 'suresh-veeramalla-web';
   searchValue:string
   displayedColumns: string[] = [ 'avatar_url', 'login', 'type'];
+  noResultsfound:boolean=false;
   dataSource = new MatTableDataSource<PeriodicElement>();
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
+
 
   constructor(
     private http:HttpClient
@@ -32,6 +34,8 @@ export class AppComponent {
     getUserData(): void{
       const url= `https://api.github.com/search/users?q=${this.searchValue} in:login`
       this.http.get(url).subscribe((res:any)=>{
+        this.noResultsfound =res?.items.length===0 ? true: false; 
+        console.log(res.items)
         this.dataSource =  new MatTableDataSource<PeriodicElement>(res.items);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;

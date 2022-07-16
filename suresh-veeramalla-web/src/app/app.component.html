@@ -10,7 +10,6 @@
 </div>
 
 <div class="mat-elevation-z8 m-2" [hidden]="dataSource.data.length === 0" >
-  <p class="m-3">Showing results for {{searchValue}}</p>
   <table mat-table [dataSource]="dataSource"  matSort>
     <ng-container matColumnDef="avatar_url">
       <th mat-header-cell *matHeaderCellDef > Avatar Url </th>
@@ -34,5 +33,7 @@
                  aria-label="Select page of periodic elements">
   </mat-paginator>
 </div>
+
+<p *ngIf="noResultsfound" class="m-auto">No results found</p>
 
 
