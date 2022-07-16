@@ -9,11 +9,38 @@
     width: 5rem ;
     margin-left: 0.5rem;
     border: none;
-    background-color: #a8a8bd;
+    background-color: #337ab7;
     color: #ffff;
     border-radius: 6px;
     cursor: pointer;
 }
+.clear{
+    // border-color: ;
+    border: 1px solid #ccc;
+    height: 3.25rem;
+    width: 5rem ;
+    margin-left: 0.5rem;
+    border: none;
+    background-color: #e6e6e6;
+    color: #333;
+    border-radius: 6px;
+    cursor: pointer;
+    
+}
+.clear:hover{ 
+color: #333;
+background-color: #e6e6e6;
+border-color: #adadad;
+}
 table {
     width: 100%;
   }
+  .m-2{
+    margin:1rem;
+  }
+  .m-3{
+    padding: 1rem;
+  }
+  
+
+

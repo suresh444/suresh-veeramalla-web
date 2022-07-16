@@ -2,12 +2,15 @@
 <div class="search-bar">
   <mat-form-field class="search-field" appearance="fill">
     <input matInput placeholder="Search User" [(ngModel)]="searchValue">
+    
   </mat-form-field>
-  <button class="search-button" (click)="getUserDate()">Search</button>
+  <button class="search-button" (click)="getUserData()">Search</button>
+  <button  class="clear" (click)="clearData()">Clear</button>
 
 </div>
 
-<div class="mat-elevation-z8"  >
+<div class="mat-elevation-z8 m-2" [hidden]="dataSource.data.length === 0" >
+  <p class="m-3">Showing results for {{searchValue}}</p>
   <table mat-table [dataSource]="dataSource"  matSort>
     <ng-container matColumnDef="avatar_url">
       <th mat-header-cell *matHeaderCellDef > Avatar Url </th>

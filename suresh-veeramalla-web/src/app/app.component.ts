@@ -25,14 +25,20 @@ export class AppComponent {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private http:HttpClient){  }
+  constructor(
+    private http:HttpClient
+    ){  }
  
-    getUserDate(){
+    getUserData(): void{
       const url= `https://api.github.com/search/users?q=${this.searchValue} in:login`
       this.http.get(url).subscribe((res:any)=>{
         this.dataSource =  new MatTableDataSource<PeriodicElement>(res.items);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       })
+    }
+    clearData(){
+      this.searchValue='';
+        this.dataSource =  new MatTableDataSource<PeriodicElement>([]);
     }
 }
